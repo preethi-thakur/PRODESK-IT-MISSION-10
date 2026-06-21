@@ -15,7 +15,7 @@ Advanced movie filtering
 Global state management using Redux Toolkit
 Real-time search functionality
 Featured movie section
-Favorites dashboard
+Favorites dashboard 
 Technologies Used
 Frontend
 Next.js
