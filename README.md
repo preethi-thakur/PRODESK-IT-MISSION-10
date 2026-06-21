@@ -1,84 +1,38 @@
+# PRODESK-IT-MISSION--9
+Movie Explorer is a Next.js 15 web application that allows users to search, browse, and explore movies using the OMDb API. The project features dynamic routing, server-side rendering, SEO optimization, responsive design, and a favorites system. It demonstrates modern frontend development using React, Next.js, and Tailwind CSS.
 # Movie Explorer
 
-## Description
+## Overview
 
-Movie Explorer is a modern movie discovery web application built with Next.js, Redux Toolkit, and Tailwind CSS. It allows users to search movies, view detailed information, manage favorites, apply filters, and enjoy a smooth browsing experience through infinite scrolling. The application fetches real-time movie data from the OMDb API and provides a responsive and user-friendly interface.
+Movie Explorer is a web application built using Next.js 15, React 19, and Tailwind CSS. The application enables users to search for movies, explore detailed movie information, and manage a personalized list of favorite movies. Movie data is retrieved in real time through the OMDb API, providing an interactive and engaging user experience.
 
----
+This project demonstrates the migration of a React + Vite application to Next.js, incorporating modern web development concepts such as Server-Side Rendering (SSR), dynamic routing, and SEO optimization.
 
 ## Features
 
-- Search movies using OMDb API
-- View detailed movie information
-- Infinite scrolling for continuous browsing
-- Add and remove favorite movies
-- Redux Toolkit state management
-- Advanced filtering system
-- Responsive design
-- Featured movie section
-- Real-time search functionality
-- Persistent favorites using Local Storage
+* Search movies by title
+* View detailed movie information
+* Add and remove favorite movies
+* Responsive user interface
+* Dynamic routing for movie details
+* Server-side rendering
+* SEO optimization using metadata
+* Real-time movie data from OMDb API
 
----
+## Technologies Used
 
-## Tech Stack
-
-### Frontend
-- Next.js
-- React
-- Tailwind CSS
-
-### State Management
-- Redux Toolkit
-- React Redux
-
-### API
-- OMDb API
-
----
-
-## Project Structure
-
-```bash
-movie-explorer/
-│
-├── app/
-│   ├── page.jsx
-│   ├── layout.jsx
-│   └── globals.css
-│
-├── components/
-│   ├── Navbar.jsx
-│   ├── MovieCard.jsx
-│   ├── MovieModal.jsx
-│   ├── SidebarFilters.jsx
-│   ├── ActiveFilters.jsx
-│   └── FilteredMovieGrid.jsx
-│
-├── store/
-│   ├── store.js
-│   └── slices/
-│       └── filterSlice.js
-│
-├── lib/
-│   └── omdb.js
-│
-├── public/
-│
-├── .env.local
-├── package.json
-└── README.md
-```
-
----
+* Next.js 15
+* React 19
+* JavaScript
+* Tailwind CSS
+* OMDb API
 
 ## Installation
 
-### Clone Repository
+### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/movie-explorer.git
-cd movie-explorer
+git clone <repository-url>
 ```
 
 ### Install Dependencies
@@ -87,125 +41,50 @@ cd movie-explorer
 npm install
 ```
 
-### Environment Variables
+### Configure Environment Variables
 
-Create a `.env.local` file in the root directory:
+Create a `.env.local` file in the project root and add:
 
 ```env
-NEXT_PUBLIC_OMDB_API_KEY=YOUR_OMDB_API_KEY
+NEXT_PUBLIC_OMDB_API_KEY=your_api_key
 ```
 
-Get your free API key from:
-
-https://www.omdbapi.com/apikey.aspx
-
-### Run Development Server
+### Start Development Server
 
 ```bash
 npm run dev
 ```
 
-Open:
+Open the application in your browser:
 
-```bash
+```text
 http://localhost:3000
 ```
 
----
+## Project Structure
 
-## Build for Production
+```text
+app/
+components/
+lib/
+public/
+```
+
+## Build and Run for Production
 
 ```bash
 npm run build
-npm start
+npm run start
 ```
 
----
+## Future Enhancements
 
-## Redux Toolkit Implementation
-
-The application uses Redux Toolkit to manage global state efficiently.
-
-### Filter Slice
-
-Stores:
-
-- Search query
-- Active filters
-- Filter state synchronization
-
-### Benefits
-
-- Predictable state management
-- Centralized data flow
-- Better scalability
-- Improved maintainability
-
----
-
-## Infinite Scrolling
-
-Infinite scrolling is implemented using the Intersection Observer API.
-
-### Workflow
-
-1. User scrolls down the page
-2. Observer detects the bottom loader element
-3. Next page of movies is requested
-4. New movies are appended to existing results
-5. Process continues until no more results are available
-
----
-
-## Performance Optimizations
-
-- Debounced search input
-- Redux state management
-- Infinite scrolling
-- Memoized callbacks using useCallback
-- Reduced unnecessary re-renders
-- Efficient API requests
-
----
-
-## Future Improvements
-
-- Dark and Light Theme Toggle
-- Genre-Based Filtering
-- Watchlist Functionality
-- Movie Recommendations
-- User Authentication
-- Movie Ratings and Reviews
-- Trending and Popular Sections
-
----
-
-## Learning Outcomes
-
-This project demonstrates:
-
-- Next.js App Router
-- React Hooks
-- Redux Toolkit
-- API Integration
-- Infinite Scrolling
-- State Management
-- Component Architecture
-- Responsive UI Design
-- Performance Optimization
-
----
+* User authentication
+* Watchlist functionality
+* Movie recommendations
+* Advanced filtering and sorting
+* Theme customization
 
 ## Author
 
-Swobhagya Sahoo
-
-B.Tech Computer Science and Engineering (Artificial Intelligence)
-
-Institute of Aeronautical Engineering
-
----
-
-## License
-
-This project is developed for educational and portfolio purposes.
+**Preethi Thakur** 
