@@ -38,12 +38,12 @@ export default function FilteredMovieGrid({
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {initialMovies.map((movie) => (
         <MovieCard
-          key={movie.imdbID}
-          movie={movie}
-          isFavorite={!!favorites[movie.imdbID]}
-          onToggleFavorite={onToggleFavorite}
-          onClick={onMovieClick}
-        />
+  key={movie.imdbID}
+  movie={movie}
+  isFavorite={!!favorites[movie.imdbID]}
+  onToggleFavorite={onToggleFavorite}
+  onClick={onMovieClick}
+/>
       ))}
 
       {hasMore && !isLoadingMore && (
