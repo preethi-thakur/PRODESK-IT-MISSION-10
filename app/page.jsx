@@ -185,22 +185,23 @@ export default function Home() {
     })
   }, [])
 
-  const openModal = useCallback(async (movie) => {
-  console.log('Clicked movie:', movie)
-
+ const openModal = async (movie) => {
   try {
+    console.log('Movie clicked:', movie)
+
     const data = await getMovieDetails(movie.imdbID)
 
     console.log('Movie details:', data)
 
-    if (data && data.Response === 'True') {
+    if (data) {
       setSelectedMovie(data)
+    } else {
+      alert('Movie details not found')
     }
   } catch (error) {
-    console.error('Error opening modal:', error)
+    console.error('Modal Error:', error)
   }
-}, [])
-
+}
   const closeModal = useCallback(() => setSelectedMovie(null), [])
 
   const favoriteCount = Object.keys(favorites).length
@@ -375,14 +376,14 @@ export default function Home() {
           </div>
         )}
 
-        {selectedMovie && (
-          <MovieModal
-            movie={selectedMovie}
-            onClose={closeModal}
-            onToggleFavorite={toggleFavorite}
-            isFavorite={!!favorites[selectedMovie.imdbID]}
-          />
-        )}
+      {selectedMovie && (
+  <MovieModal
+    movie={selectedMovie}
+    onClose={() => setSelectedMovie(null)}
+    onToggleFavorite={toggleFavorite}
+    isFavorite={!!favorites[selectedMovie.imdbID]}
+  />
+)}
       </div>
     </div>
   )
