@@ -13,9 +13,9 @@ export default function FilteredMovieGrid({
   const observerRef = useRef(null)
 
   useEffect(() => {
-    const currentElement = observerRef.current
+    const current = observerRef.current
 
-    if (!currentElement || !hasMore || isLoadingMore) return
+    if (!current || !hasMore || isLoadingMore) return
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -24,13 +24,12 @@ export default function FilteredMovieGrid({
         }
       },
       {
-        root: null,
         rootMargin: '200px',
         threshold: 0.1,
       }
     )
 
-    observer.observe(currentElement)
+    observer.observe(current)
 
     return () => observer.disconnect()
   }, [hasMore, isLoadingMore, onLoadMore])
@@ -41,7 +40,7 @@ export default function FilteredMovieGrid({
         <MovieCard
           key={movie.imdbID}
           movie={movie}
-          isFavorite={Boolean(favorites[movie.imdbID])}
+          isFavorite={!!favorites[movie.imdbID]}
           onToggleFavorite={onToggleFavorite}
           onClick={onMovieClick}
         />
