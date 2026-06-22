@@ -40,5 +40,6 @@ export default function MovieCard({
         {isFavorite ? '❤️' : '🤍'}
       </button>
     </div>
+   >
   )
 }
