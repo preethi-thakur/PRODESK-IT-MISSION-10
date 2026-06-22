@@ -1,20 +1,22 @@
 import { useEffect, useRef } from 'react'
 import MovieCard from './MovieCard'
 
-export default function FilteredMovieGrid({ 
-  initialMovies = [], 
-  favorites = {}, 
+export default function FilteredMovieGrid({
+  initialMovies = [],
+  favorites = {},
   onToggleFavorite,
+  onMovieClick,
   hasMore = false,
   isLoadingMore = false,
-  onLoadMore 
+  onLoadMore,
 }) {
   const observerRef = useRef(null)
 
   useEffect(() => {
     const currentElement = observerRef.current
+
     if (!currentElement || !hasMore || isLoadingMore) return
-    
+
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && onLoadMore) {
@@ -30,9 +32,7 @@ export default function FilteredMovieGrid({
 
     observer.observe(currentElement)
 
-    return () => {
-      observer.disconnect()
-    }
+    return () => observer.disconnect()
   }, [hasMore, isLoadingMore, onLoadMore])
 
   return (
@@ -41,12 +41,17 @@ export default function FilteredMovieGrid({
         <MovieCard
           key={movie.imdbID}
           movie={movie}
-          isFavorite={!!favorites[movie.imdbID]}
+          isFavorite={Boolean(favorites[movie.imdbID])}
           onToggleFavorite={onToggleFavorite}
+          onClick={onMovieClick}
         />
       ))}
+
       {hasMore && !isLoadingMore && (
-        <div ref={observerRef} className="col-span-full h-1" />
+        <div
+          ref={observerRef}
+          className="col-span-full h-1"
+        />
       )}
     </div>
   )
