@@ -294,11 +294,14 @@ export default function Home() {
 
                   {searchResults.length > 0 ? (
                     <>
-                      <FilteredMovieGrid
-                        initialMovies={searchResults}
-                        favorites={favorites}
-                        onToggleFavorite={toggleFavorite}
-                      />
+                     <FilteredMovieGrid
+  initialMovies={searchResults}
+  favorites={favorites}
+  onToggleFavorite={toggleFavorite}
+  onMovieClick={openModal}
+  hasMore={hasMore}
+  isLoadingMore={isLoadingMore}
+/>
 
                       {isLoadingMore && (
                         <div className="flex justify-center py-10">
