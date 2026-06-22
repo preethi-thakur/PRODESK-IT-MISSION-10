@@ -186,15 +186,20 @@ export default function Home() {
   }, [])
 
   const openModal = useCallback(async (movie) => {
-    try {
-      const data = await getMovieDetails(movie.imdbID)
-      if (data && data.Response === 'True') {
-        setSelectedMovie(data)
-      }
-    } catch (error) {
-      console.error('Error opening modal:', error)
+  console.log('Clicked movie:', movie)
+
+  try {
+    const data = await getMovieDetails(movie.imdbID)
+
+    console.log('Movie details:', data)
+
+    if (data && data.Response === 'True') {
+      setSelectedMovie(data)
     }
-  }, [])
+  } catch (error) {
+    console.error('Error opening modal:', error)
+  }
+}, [])
 
   const closeModal = useCallback(() => setSelectedMovie(null), [])
 
